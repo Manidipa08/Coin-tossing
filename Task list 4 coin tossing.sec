@@ -1,0 +1,14 @@
+clc
+clear
+n = [2 4 64 128 150 170]
+for i=1:6
+    Nh=[0:1:n(i)]
+    for j=1:n(i)+1
+        Prob_Nh(j,i)=factorial(n(i))/(factorial(Nh(j))*factorial(n(i)-Nh(j))*2^n(i))
+    end
+    plot(Nh',Prob_Nh(:,i))
+    figure
+    [a b]=max(Prob_Nh(:,i))
+    Mp=Nh(b)
+    disp("MP : ",Mp)
+end
